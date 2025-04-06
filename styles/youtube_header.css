@@ -1,3 +1,5 @@
+/* YouTube Header Styles */
+
 .header {
   height: 55px;
   display: flex;
@@ -10,17 +12,19 @@
   background-color: white;
   border-bottom: solid 1px rgb(230, 230, 230);
   padding-bottom: 10px;
+  z-index: 1000;
+  padding-left: 16px;
+  padding-right: 16px;
 }
 
-<!---->
-
+/* Lado esquerdo do cabeçalho (ícone do menu e logo do YouTube) */
 .left-section {
   width: 150px;
   display: flex;
   align-items: center;
 }
 
-
+/* Ícone do menu hambúrguer */
 .hamburger-icon {
   height: 20px;
   margin-right: 24px;
@@ -28,13 +32,13 @@
   cursor: pointer;
 }
 
+/* Logo do YouTube */
 .youtube-icon-logo {
   height: 20px;
   cursor: pointer;
 }
 
-<!---->
-
+/* Seção do meio com barra de pesquisa e botão de voz */
 .middle-section {
   flex: 1;
   margin-left: 70px;
@@ -44,80 +48,168 @@
   align-items: center;
 }
 
+/* Barra de pesquisa */
 .search-bar {
   flex: 1;
   height: 36px;
   padding-left: 10px;
   font-size: 16px;
-  border-width: 1px;
-  border-style: solid;
-  border-color: rgb(192, 192, 192);
+  border: 1px solid rgb(192, 192, 192);
   border-radius: 2px;
   box-shadow: inset 1px 2px 3px rgba(0, 0, 0, 0.05);
   width: 0;
 }
 
+/* Texto padrão na barra de pesquisa */
 .search-bar::placeholder {
   font-family: Roboto, Arial;
   font-size: 16px;
 }
 
+/* Botão de pesquisa */
 .search-button {
   height: 40px;
   width: 66px;
   background-color: rgb(240, 240, 240);
-  border-width: 1px;
-  border-style: solid;
-  border-color: rgb(192, 192, 192);
+  border: 1px solid rgb(192, 192, 192);
   margin-left: -1px;
   margin-right: 10px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
 }
 
-.search-button-icon {
-  height: 25px;
-  margin-top: 4px;
-}
-
+/* Botão de voz */
 .voice-button {
   height: 40px;
   width: 40px;
-  border-radius: 20px;
+  border-radius: 50%;
   border: none;
   background-color: rgb(245, 245, 245);
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+/* Ícones de pesquisa e voz */
+.search-button-icon {
+  height: 25px;
 }
 
 .voice-button-icon {
   height: 24px;
-  margin-top: 4px;
 }
 
-
-<!---->
-
+/* Lado direito do cabeçalho com os ícones de ação */
 .right-section {
-  width: 200px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-right: 20px;
+  gap: 20px;
   flex-shrink: 0;
 }
 
-.upload-icon {
-  height: 24px;
+/* Classe comum para ícones com tooltip */
+.icon-button {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 40px;
+  width: 40px;
+  cursor: pointer;
 }
 
-.apps-icon {
-  height: 24px;
-}
-
+/* Estilo dos ícones */
+.upload-icon,
+.apps-icon,
 .notifications-icon {
   height: 24px;
 }
 
+/* Imagem de perfil */
 .current-user {
   height: 28px;
   width: 28px;
   border-radius: 50%;
 }
-<!---->
+
+/* Notificações com número */
+.notification-number {
+  position: relative;
+}
+
+.notification-count {
+  position: absolute;
+  background-color: red;
+  color: white;
+  top: 3px;
+  right: 3px;
+  padding: 1px 5px;
+  font-size: 11px;
+  border-radius: 10px;
+}
+
+/* Tooltip genérica para todos os botões */
+.tooltip {
+  position: absolute;
+  color: white;
+  background-color: gray;
+  padding: 4px 6px;
+  border-radius: 4px;
+  font-size: 12px;
+  bottom: -30px;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s;
+  z-index: 10;
+}
+
+/* Exibir tooltip ao passar o mouse */
+.search-button:hover .tooltip,
+.voice-button:hover .tooltip,
+.icon-button:hover .tooltip {
+  opacity: 1;
+}
+
+/* Responsividade: adapta o grid de vídeos em telas menores */
+@media (max-width: 800px) {
+  .video-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .middle-section {
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+
+  .right-section {
+    gap: 12px;
+  }
+}
+
+@media (max-width: 500px) {
+  .video-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .sidebar {
+    display: none; /* Esconde a sidebar em telas pequenas */
+  }
+
+  .middle-section {
+    max-width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .header {
+    padding-left: 8px;
+    padding-right: 8px;
+  }
+}
