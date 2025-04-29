@@ -1,5 +1,19 @@
-# Youtube Homepage Clone
-A youtube homepage layout made with html and css
+# 📺 YouTube Homepage Clone
 
-# Running 
-To run this you just have to install "Live Server" extension on Visual Studio Code, open this folder and click on "Live On" or click ctrl + shift + p and type "Open With Live Server"
+Uma recriação do layout da página inicial do YouTube, utilizando apenas **HTML** e **CSS**.
+
+---
+
+## 📄 Sobre o Projeto
+
+Este projeto é um clone simples da homepage do YouTube, feito para praticar e demonstrar habilidades de estruturação com HTML e estilização com CSS.
+
+---
+
+## 🚀 Como Rodar o Projeto
+
+Para visualizar o projeto localmente:
+
+1. Clone este repositório:
+   ```bash
+   git clone https://github.com/seu-usuario/seu-repo.git
